@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @trouble.user_id %>
+</p>
+
+<p>
+  <strong>Counselor:</strong>
+  <%= @trouble.counselor_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @trouble.content %>
+</p>
+
+<p>
+  <strong>Counselor Name:</strong>
+  <%= @trouble.counselor.name %>
+</p>
+
+
+<p>
+  <strong>Counselor Message:</strong>
+  <%= @trouble.counselor.response %>
+</p>
+
+<p><strong>Counselor Picture</strong></p>
+<div class="counselor_image"><%= image_tag  @trouble.counselor.avatar , size: "100x100" %></div>
+
+
+
+<%= link_to 'Edit', edit_trouble_path(@trouble) %> |
+<%= link_to 'Back', troubles_path %>
