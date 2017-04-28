@@ -15,5 +15,9 @@
   <%= @counselor.response %>
 </p>
 
+<p><strong>Counselor Picture</strong></p>
+<div class="counselor_image"><%= image_tag  @counselor.avatar , size: "100x100" %></div>
+
+
 <%= link_to 'Edit', edit_counselor_path(@counselor) %> |
 <%= link_to 'Back', counselors_path %>
