@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :counselors
   resources :troubles
+  get 'troubles/:id/download' => 'troubles#download_file', as: :download_file
   devise_for :users
   root :to => 'troubles#index'
   # The priority is based upon order of creation: first created -> highest priority.

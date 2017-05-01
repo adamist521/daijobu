@@ -63,6 +63,19 @@ class TroublesController < ApplicationController
     end
   end
 
+  # line talk jpeg 
+  def download_file
+    # trouble = Trouble.find(params[:id])
+    filepath = Rails.root.join('app/assets/images/others', 'gakki.jpg')
+    # filepath = 'images/others/gakki.jpg'
+    stat = File::stat(filepath)
+    # send_file(filepath, :filename => myfile.filename, :length => stat.size)
+    # send_file filepath, :filename => 'gakki.pdf', :length => stat.size, :disposition => 'attachment', type: 'image/jpeg'
+    send_file filepath, :filename => 'gakki.pdf', :length => stat.size, :disposition => 'attachment', type: 'pdf/pdf'
+    # send_data filepath, :filename => 'gakki.jpg', :length => stat.size, :disposition => 'inline'
+    # redirect_to controller: :troubles, action: :show, id: params[:id]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trouble
