@@ -65,10 +65,13 @@ class TroublesController < ApplicationController
 
   # line talk jpeg 
   def download_file
+    require Rails.root.join('./app/controllers/','mklinetalk_module')
+    linetalk = MkLineTalk.mkimage
     # trouble = Trouble.find(params[:id])
-    filepath = Rails.root.join('app/assets/images/others', 'gakki.jpg')
-    stat = File::stat(filepath)
-    send_file filepath, :filename => 'gakki.jpg', :length => stat.size, :disposition => 'attachment', type: 'image/jpeg'
+    # filepath = Rails.root.join('app/assets/images/others', 'gakki.jpg')
+    # stat = File::stat(filepath)
+    # send_file filepath, :filename => 'gakki.jpg', :length => stat.size, :disposition => 'attachment', type: 'image/jpeg'
+    send_data linetalk, :filename => 'linetalk.jpg', :disposition => 'attachment', type: 'image/jpeg'
   end
 
   private
