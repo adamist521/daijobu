@@ -30,8 +30,7 @@
 <div class="counselor_image"><%= image_tag  @trouble.counselor.avatar , size: "100x100" %></div>
 
 
-<%#= link_to 'download LINE message', :controller => "troubles", :action => "download_file" %>  
-<%= link_to 'download LINE message', download_file_path(@trouble) %>
+<%= link_to 'download LINE message', download_file_path(@trouble), data: { turbolinks: false } %>
 
 
 
