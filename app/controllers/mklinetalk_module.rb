@@ -1,6 +1,6 @@
 # coding: utf-8
 module MkLineTalk
-  def mkimage
+  def mkimage(trouble)
     require 'FileUtils'
     require 'Time'
     require 'RMagick'
@@ -15,10 +15,11 @@ module MkLineTalk
 
     # font = 
     # font = "#{Rails.root}/lib/fonts/hiragino.ttc"
-    # FileUtils.cd(Rails.root.join('app/assets/fonts'))
+    FileUtils.cd(Rails.root.join('app/assets/fonts'))
     # fontの読み込みができない問題。 これはrubyのパスの方の問題?
-    font = "./hiragino.ttc"
-
+    # $LOAD_PATH.unshift(File.dirname(__FILE__))
+    font = "hiragino.ttc"
+    
 
     # parameters
     # 自分の投稿関連
@@ -46,12 +47,15 @@ module MkLineTalk
 
 
 
-    talk_name = "新垣結衣"
-    talk_res = "まあ大丈夫だから落ち着こ。恋ダンスでも踊ろうよ。"
+    # talk_name = "新垣結衣"
+    talk_name = trouble.counselor.name
+    # talk_res = "まあ大丈夫だから落ち着こ。恋ダンスでも踊ろうよ。"
+    talk_res = trouble.counselor.response
     tsep_fr = ((fr_max - marginleft) / psize).floor - 1 
     res_vec = talk_res.scan(/.{1,#{tsep_fr}}/)
 
     text = '終わるどうしようどうしようどうしようどうしよう、なんてこっちゃなんてこっちゃなんてこっちゃ'
+    text = trouble.content
     tsep = ((width - cx) / psize).floor - 1
     textvec = text.scan(/.{1,#{tsep}}/)
 
@@ -148,7 +152,9 @@ module MkLineTalk
       self.gravity   = Magick::NorthWestGravity
     end
 
-    icon = Magick::ImageList.new(Rails.root.join('app/assets/images/others','gakki.jpg'))
+    # icon = Magick::ImageList.new(Rails.root.join('app/assets/images/others','gakki.jpg'))
+    # binding.pry
+    icon = Magick::ImageList.new(trouble.counselor.avatar.path(:thumb))
     icon_size = 40
     icon.resize_to_fill!(icon_size, icon_size)
     img.composite!(icon, 10, talk_height + 10, Magick::OverCompositeOp)
@@ -183,5 +189,7 @@ module MkLineTalk
     return img.to_blob
   end
 
+  # fontのために移動したのをもとに戻す。
+  FileUtils.cd(Rails.root)
   module_function :mkimage
 end

@@ -1,5 +1,5 @@
 class TroublesController < ApplicationController
-  before_action :set_trouble, only: [:show, :edit, :update, :destroy]
+  before_action :set_trouble, only: [:show, :edit, :update, :destroy, :download_file]
 
   # GET /troubles
   # GET /troubles.json
@@ -65,9 +65,9 @@ class TroublesController < ApplicationController
 
   # line talk jpeg 
   def download_file
-    require Rails.root.join('./app/controllers/','mklinetalk_module')
-    linetalk = MkLineTalk.mkimage
-    # trouble = Trouble.find(params[:id])
+    load Rails.root.join('./app/controllers/','mklinetalk_module.rb')
+    # require Rails.root.join('./app/controllers/','mklinetalk_module')
+    linetalk = MkLineTalk.mkimage(@trouble)
     # filepath = Rails.root.join('app/assets/images/others', 'gakki.jpg')
     # stat = File::stat(filepath)
     # send_file filepath, :filename => 'gakki.jpg', :length => stat.size, :disposition => 'attachment', type: 'image/jpeg'
