@@ -1,13 +1,31 @@
-== README
+# Awesome-name
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Heroku公開予定]()
 
-Things you may want to cover:
+根拠のない自信をいろんな人(ボット)から「大丈夫」と言われることで自信を持てるウェブアプリ。
 
+## Description
+
+DescriptionDescriptionDescription
+DescriptionDescriptionDescription
+DescriptionDescriptionDescription
+
+***DEMO:***
+
+![DEMO](https://github.com/adamist521/daijobu/blob/media/demo.gif)
+
+## Features
+
+- Awesome function
+- Awesome UI
+- ...
+
+For more information, see `awesome-tool --help`.
+
+## Requirement
 * Ruby version
 
-* System dependencies
+* System dependencies  
   rmagick(image-magick@6) (LINE風トーク画面を生成する場合)
 
 * Configuration
@@ -28,6 +46,31 @@ Things you may want to cover:
   macOS Sierra
 
 
+- Requirement
+- Requirement
+- Requirement
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Usage
+
+1. Usage
+2. Usage
+3. Usage
+
+## Installation
+
+    $ git clone https://github.com/adamist521/daijobu.git
+
+## Anything Else
+
+AnythingAnythingAnything
+AnythingAnythingAnything
+AnythingAnythingAnything
+
+## Author
+
+[adamist521](https://github.com/adamist521)
+
+## License
+
+[MIT](http://b4b4r07.mit-license.org)
+
