@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @trouble.user_id %>
+  <%= @trouble.user.nickname %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Counselor Name:</strong>
-  <%= @trouble.counselor.name %>
+  <%= link_to @trouble.counselor.name, counselor_path(@trouble.counselor.id) %>
 </p>
 
 
