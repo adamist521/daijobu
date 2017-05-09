@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :troubles
   get 'troubles/:id/download' => 'troubles#download_file', as: :download_file
   devise_for :users
-  root :to => 'troubles#index'
+  root :to => 'counselors#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
