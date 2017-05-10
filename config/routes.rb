@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :counselors
+  resources :counselors do
+    get "search", to: "counselors#search", on: :collection
+  end
   resources :troubles
   get 'troubles/:id/download' => 'troubles#download_file', as: :download_file
   devise_for :users

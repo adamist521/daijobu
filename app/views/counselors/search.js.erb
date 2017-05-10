@@ -1,0 +1,6 @@
+// 現在表示されているユーザーを消去
+$("tbody").children().remove();
+// 各ユーザーのtrをtableに追加
+<% @counselors.each do |counselor| %>
+$("tbody").append("<%= j(render("tr", counselor: counselor)) %>");
+<% end %>
