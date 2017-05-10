@@ -1,0 +1,33 @@
+p#notice
+  = notice
+h1
+  | カウンセラーを選択
+== material_icon.search
+
+table
+  thead
+    tr
+      th
+        | User
+      th
+        | Name
+      th
+        | Response
+      th[colspan="3"]
+  tbody
+    - @counselors.each do |counselor|
+      tr
+        td
+          = counselor.user_id
+        td
+          = link_to counselor.name, new_trouble_path(counselor_id: counselor.id)
+        td
+          = counselor.response
+        td
+          = link_to 'Show', counselor
+        td
+          = link_to 'Edit', edit_counselor_path(counselor)
+        td
+          = link_to 'Destroy', counselor, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'カウンセラーを追加', new_counselor_path

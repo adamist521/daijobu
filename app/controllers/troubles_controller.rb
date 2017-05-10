@@ -15,7 +15,7 @@ class TroublesController < ApplicationController
   # GET /troubles/new
   def new
     @trouble = Trouble.new
-    @counselors = Counselor.all
+    # @counselors = Counselor.all
   end
 
   # GET /troubles/1/edit
@@ -30,7 +30,7 @@ class TroublesController < ApplicationController
 
     respond_to do |format|
       if @trouble.save
-        format.html { redirect_to @trouble, notice: 'Trouble was successfully created.' }
+        format.html { redirect_to edit_trouble_path(@trouble), notice: 'Trouble was successfully created.' }
         format.json { render :show, status: :created, location: @trouble }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class TroublesController < ApplicationController
   def update
     respond_to do |format|
       if @trouble.update(trouble_params)
-        format.html { redirect_to @trouble, notice: 'Trouble was successfully updated.' }
+        format.html { redirect_to edit_trouble_path(@trouble), notice: 'Trouble was successfully updated.' }
         format.json { render :show, status: :ok, location: @trouble }
       else
         format.html { render :edit }

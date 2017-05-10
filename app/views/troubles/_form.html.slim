@@ -1,0 +1,19 @@
+= form_for(@trouble) do |f|
+  - if @trouble.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@trouble.errors.count, "error")
+        |  prohibited this trouble from being saved:
+      ul
+        - @trouble.errors.full_messages.each do |message|
+          li
+            = message
+  / = f.select :counselor_id, @counselors.collect{|c| [c.name, c.id]}
+  .field
+    = f.label :content
+    br
+    = f.text_area :content
+    br
+    = f.hidden_field :counselor_id, value: @trouble.counselor_id || params[:counselor_id]
+  .actions
+    = f.submit

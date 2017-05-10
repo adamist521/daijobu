@@ -1,0 +1,4 @@
+h1
+  = Counselor.find(params[:counselor_id]).name
+== render 'form'
+= link_to 'Back', troubles_path
