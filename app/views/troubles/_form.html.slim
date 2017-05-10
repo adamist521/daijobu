@@ -9,11 +9,11 @@
           li
             = message
   / = f.select :counselor_id, @counselors.collect{|c| [c.name, c.id]}
-  .field
-    = f.label :content
-    br
-    = f.text_area :content
-    br
-    = f.hidden_field :counselor_id, value: @trouble.counselor_id || params[:counselor_id]
-  .actions
-    = f.submit
+  = f.hidden_field :counselor_id, value: @trouble.counselor_id || params[:counselor_id]
+  .trouble-text-box
+    .actions.send-btn-box
+      = button_tag '', :class => 'send-btn' do
+        == material_icon.style('color: white;').send
+    .field.trouble-field
+      / = f.label :content
+      = f.text_area :content, :value => '', :class => 'trouble-text'

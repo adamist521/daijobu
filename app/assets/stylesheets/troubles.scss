@@ -1,3 +1,155 @@
 // Place all the styles related to the Troubles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* 名前エリア */
+.name-box {
+    background-color: #464E66;
+    color: white;
+    padding-left: 20px;
+}
+
+/*--------------------
+ 吹き出しを作る
+--------------------*/
+/* 会話の箱*/
+.kaiwa-box {
+    min-height: 300px;
+    background-color: #849EC0;
+}
+/* 全体のスタイル */
+.kaiwa {
+    margin-bottom: 40px;
+}
+/* 左画像 */
+.kaiwa-img-left {
+    margin: 0;
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+}
+/* 右画像 */
+.kaiwa-img-right {
+    margin: 0;
+    float: right;
+    width: 60px;
+    height: 60px;
+}
+.kaiwa figure img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    margin: 0;
+}
+/* 画像の下のテキスト */
+.kaiwa-img-description {
+    padding: 5px 0 0;
+    font-size: 10px;
+    text-align: center;
+}
+/* 左からの吹き出しテキスト */
+.kaiwa-text-right {
+    position: relative;
+    margin-left: 30px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background-color: #F9F9FA;
+    overflow: visible;
+    float: left;
+    display: inline-block;    
+}
+/* 右からの吹き出しテキスト */
+.kaiwa-text-left {
+    position: relative;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background-color: #B2ED8B;
+    overflow: visible;
+    float: right;
+    display: inline-block;
+}
+
+p.kaiwa-text {
+    margin: 0 0 20px;
+}
+p.kaiwa-text:last-child {
+    margin-bottom: 0;
+}
+/* 左の三角形を作る */
+.kaiwa-text-right:before {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-right: 10px solid #F9F9FA;
+    top: 15px;
+    left: -20px;
+}
+
+
+.kaiwa-text-right:after {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-right: 10px solid #F9F9FA;
+    top: 15px;
+    left: -19px;
+}
+/* 右の三角形を作る */
+.kaiwa-text-left:before {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-left: 10px solid #B2ED8B;
+    top: 15px;
+    right: -20px;
+}
+.kaiwa-text-left:after {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-left: 10px solid #B2ED8B;
+    top: 15px;
+    right: -19px;
+}
+/* 回り込み解除 */
+.kaiwa:after,.kaiwa:before {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+
+
+.trouble-text-box {
+    border-style: solid;
+    border-width: 1px;
+    background-color: #5685E4;
+}
+
+.trouble-field {
+    background-color: white;
+}
+
+.trouble-text {
+    width: 99%;
+    height: 10em;
+    resize: none;
+    border: none;
+}
+
+.send-btn-box {
+    float: right;
+}
+
+.send-btn {
+    background-color: #5685E4;
+    border: none;
+}
+

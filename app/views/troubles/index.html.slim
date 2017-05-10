@@ -1,0 +1,66 @@
+p#notice
+  = notice
+.name-box
+  h1
+    | 悩み一覧
+.entry_button[style="float: right"]
+  = link_to 'サインイン', "/users/sign_in", method: :get
+.entry_button[style="float: right"]
+  = link_to 'サインアウト', "/users/sign_out", method: :delete
+.troubles-box
+  p
+    = "自分の悩み #{current_user.troubles.length} "
+  table
+    thead
+      tr
+        th
+          | User
+        th
+          | Counselor
+        th
+          | Content
+        th[colspan="3"]
+    tbody
+      - current_user.troubles.each do |trouble|
+        tr
+          td
+            = trouble.user_id
+          td
+            = trouble.counselor_id
+          td
+            = trouble.content
+          td
+            = link_to 'Show', trouble
+          td
+            = link_to 'Edit', edit_trouble_path(trouble)
+          td
+            = link_to 'Destroy', trouble, method: :delete, data: { confirm: 'Are you sure?' }
+  p
+    = "みんなの悩み #{@troubles.length} "
+  table
+    thead
+      tr
+        th
+          | User
+        th
+          | Counselor
+        th
+          | Content
+        th[colspan="3"]
+    tbody
+      - @troubles.each do |trouble|
+        tr
+          td
+            = trouble.user_id
+          td
+            = trouble.counselor_id
+          td
+            = trouble.content
+          td
+            = link_to 'Show', trouble
+          td
+            = link_to 'Edit', edit_trouble_path(trouble)
+          td
+            = link_to 'Destroy', trouble, method: :delete, data: { confirm: 'Are you sure?' }
+  br
+  = link_to 'New Trouble', new_trouble_path

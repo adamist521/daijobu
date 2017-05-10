@@ -1,0 +1,19 @@
+.name-box
+  h1
+    = @trouble.counselor.name
+.kaiwa-box
+  .kaiwa
+    .kaiwa-text-left
+      = simple_format(@trouble.content)
+  .kaiwa
+    figure.kaiwa-img-left
+      = image_tag  @trouble.counselor.avatar.url(:thumb)
+    .kaiwa-text-right
+      = simple_format(@trouble.counselor.response)
+== render 'form'
+= link_to 'Show', @trouble
+|  | 
+= link_to 'Back', counselors_path
+
+p#notice
+  = notice

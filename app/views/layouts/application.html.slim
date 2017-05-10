@@ -11,4 +11,5 @@ html
       = link_to "悩みリスト", :controller => "/troubles", :action => "index"
       |  
       = link_to "カウンセラーリスト", :controller => "/counselors", :action => "index"
-      == yield
+      .wrapper
+        == yield

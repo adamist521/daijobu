@@ -13,4 +13,43 @@
  *= require_tree .
  *= require_self
  *= require material_icons
-*/
+ */
+
+div {
+    overflow:auto;
+}
+
+div.field {
+    margin: 0;
+    overflow: auto;
+}
+
+body
+{
+    margin: 0 ;				/* スペース */
+    padding: 0 ;			/* 余白 */
+    font-size: 15px ;		/* 文字サイズ */
+    line-height: 1.618 ;	/* 行の高さ */
+}
+
+.wrapper
+{
+    width: 600px ;
+    margin: 0 auto ;	/* 左右に[auto]を指定することで、真ん中に寄る */
+    padding: 0 ;		/* 上下左右の余白を0にしておく */
+}
+
+/* スマホだけに適用するCSS */
+@media screen and ( max-width:479px )
+{
+    body
+    {
+	font-size: 13px ;	/* 文字サイズ */
+    }
+
+    .wrapper
+    {
+	width: auto ;
+	padding: 0 10px ;		/* 左右の余白 */
+    }
+}

@@ -109,7 +109,7 @@ module MkLineTalk
     end
 
     # 既読、日付 (自分)
-    message_time = "#{t.hour}:#{t.min - 1}"
+    message_time = "#{format("%02d",t.hour)}:#{format("%02d", t.min - 1)}"
     dr.annotate(img, 0, 0, cx - margin_kidoku - psize_info*3, talk_height - 5, message_time) do
       self.font      = font
       self.fill      = 'white'

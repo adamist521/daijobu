@@ -1,3 +1,4 @@
+# coding: utf-8
 class CounselorsController < ApplicationController
   before_action :set_counselor, only: [:show, :edit, :update, :destroy]
 
@@ -59,6 +60,12 @@ class CounselorsController < ApplicationController
       format.html { redirect_to counselors_url, notice: 'Counselor was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET  users/search
+  def search
+    # params[:word]に入力された文字列が入っているので、whereで検索を行う。
+    @users = Counselor.where("name like '%" + params[:word] + "%'")
   end
 
   private
