@@ -43,9 +43,8 @@ module MkLineTalk
 
     psize_info = 10
 
-    t = Time.now
-
-
+    t = Time.now.advance(minutes: -5)
+    t_fr = Time.now
 
     # talk_name = "新垣結衣"
     talk_name = trouble.counselor.name
@@ -54,7 +53,7 @@ module MkLineTalk
     tsep_fr = ((fr_max - marginleft) / psize).floor - 1 
     res_vec = talk_res.scan(/.{1,#{tsep_fr}}/)
 
-    text = '終わるどうしようどうしようどうしようどうしよう、なんてこっちゃなんてこっちゃなんてこっちゃ'
+    # text = '終わるどうしようどうしようどうしようどうしよう、なんてこっちゃなんてこっちゃなんてこっちゃ'
     text = trouble.content
     tsep = ((width - cx) / psize).floor - 1
     textvec = text.scan(/.{1,#{tsep}}/)
@@ -109,7 +108,7 @@ module MkLineTalk
     end
 
     # 既読、日付 (自分)
-    message_time = "#{format("%02d",t.hour)}:#{format("%02d", t.min - 1)}"
+    message_time = t.to_s(:time)
     dr.annotate(img, 0, 0, cx - margin_kidoku - psize_info*3, talk_height - 5, message_time) do
       self.font      = font
       self.fill      = 'white'
@@ -162,7 +161,7 @@ module MkLineTalk
 
 
     # 既読、日付
-    message_time_fr = "#{t.hour}:#{t.min}"
+    message_time_fr = t_fr.to_s(:time)
     dr.annotate(img, 0, 0,
                 fr_max+8, talk_height + margin_talk + 30 + line_height * res_vec.length - 5,
                 message_time_fr) do

@@ -11,6 +11,9 @@
     .kaiwa-text-right
       = simple_format(@trouble.counselor.response)
 == render 'form'
+
+= link_to 'download LINE message', download_file_path(@trouble), data: { turbolinks: false }
+|  | 
 = link_to 'Show', @trouble
 |  | 
 = link_to 'Back', counselors_path
