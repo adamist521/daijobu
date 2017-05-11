@@ -7,13 +7,12 @@ Rails.application.routes.draw do
   get 'troubles/:id/download' => 'troubles#download_file', as: :download_file
   
   devise_for :users
-  
+
   authenticated :user do
-    root to: 'counselors
-#index', as: :authenticated_root
+    root to: 'counselors#index', as: :authenticated_root
   end
-  
   root to: redirect('/users/sign_in')
+
   # root :to => 'counselors#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
