@@ -5,7 +5,7 @@ class CounselorsController < ApplicationController
   # GET /counselors
   # GET /counselors.json
   def index
-    @counselors = Counselor.all
+    @counselors = Counselor.all.order("id DESC")
   end
 
   # GET /counselors/1

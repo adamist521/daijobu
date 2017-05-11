@@ -3,10 +3,7 @@ p#notice
 .name-box
   h1
     | 悩み一覧
-.entry_button[style="float: right"]
-  = link_to 'サインイン', "/users/sign_in", method: :get
-.entry_button[style="float: right"]
-  = link_to 'サインアウト', "/users/sign_out", method: :delete
+
 .troubles-box
   p
     = "自分の悩み #{current_user.troubles.length} "
@@ -21,7 +18,7 @@ p#notice
           | Content
         th[colspan="3"]
     tbody
-      - current_user.troubles.each do |trouble|
+      - current_user.troubles.order("id DESC").each do |trouble|
         tr
           td
             = trouble.user_id

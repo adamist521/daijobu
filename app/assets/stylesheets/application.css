@@ -32,6 +32,13 @@ body
     line-height: 1.618 ;	/* 行の高さ */
 }
 
+#container
+{
+    max-width: 600px ;
+    margin: 0 auto ;
+    padding: 0 ;
+}
+
 .wrapper
 {
     width: 600px ;

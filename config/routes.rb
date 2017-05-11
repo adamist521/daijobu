@@ -2,10 +2,20 @@ Rails.application.routes.draw do
   resources :counselors do
     get "search", to: "counselors#search", on: :collection
   end
+  
   resources :troubles
   get 'troubles/:id/download' => 'troubles#download_file', as: :download_file
+  
   devise_for :users
-  root :to => 'counselors#index'
+  
+  authenticated :user do
+    root to: 'counselors
+#index', as: :authenticated_root
+  end
+  
+  root to: redirect('/users/sign_in')
+  # root :to => 'counselors#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

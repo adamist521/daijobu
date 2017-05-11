@@ -8,8 +8,11 @@ html
     = csrf_meta_tags
   body
     #container
-      = link_to "悩みリスト", :controller => "/troubles", :action => "index"
-      |  
-      = link_to "カウンセラーリスト", :controller => "/counselors", :action => "index"
+      - if user_signed_in?
+        = link_to "悩みリスト", :controller => "/troubles", :action => "index"
+        |  
+        = link_to "カウンセラーリスト", :controller => "/counselors", :action => "index"
+        .entry_button[style="float: right"]
+          = link_to 'サインアウト', "/users/sign_out", method: :delete
       .wrapper
         == yield

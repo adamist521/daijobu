@@ -1,0 +1,28 @@
+p#notice
+  = notice
+.name-box
+  h1
+    = @counselor.name    
+p
+  strong
+    | User:
+  = @counselor.user_id
+
+  strong
+    | Response:
+  = @counselor.response
+p
+  strong
+    | Counselor Picture
+.counselor_image
+  = image_tag  @counselor.avatar , size: "100x100"
+p
+  strong
+    | 解決した悩み
+  ul
+    - @counselor.troubles.each do |trouble|
+      li
+        = link_to trouble.content, trouble_path(trouble.id)
+= link_to 'Edit', edit_counselor_path(@counselor)
+|  | 
+= link_to 'Back', counselors_path

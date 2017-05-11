@@ -1,0 +1,22 @@
+= form_for(@counselor) do |f|
+  - if @counselor.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@counselor.errors.count, "error")
+        |  prohibited this counselor from being saved:
+      ul
+        - @counselor.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label :name
+    br
+    = f.text_field :name
+  .field
+    = f.label :response
+    br
+    = f.text_area :response
+  .field
+    = f.file_field :avatar
+  .actions
+    = f.submit
