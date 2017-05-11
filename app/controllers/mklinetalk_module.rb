@@ -1,10 +1,6 @@
 # coding: utf-8
 module MkLineTalk
   def mkimage(trouble)
-    require 'FileUtils'
-    require 'Time'
-    require 'RMagick'
-
     # img = Magick::ImageList.new(asset_path("line_bg.jpg")) # 元画像の sample.jpg を読み込み
     img = Magick::ImageList.new(Rails.root.join('app/assets/images/others',"line_bg.jpg")) # 元画像の sample.jpg を読み込み
     # scaled_img = img.scale(300, 300)
