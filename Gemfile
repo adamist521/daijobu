@@ -53,7 +53,7 @@ gem 'kaminari'
 gem 'rmagick'
 gem 'material_icons'
 gem 'slim-rails'
-gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 group :production do
   gem 'rails_12factor'
