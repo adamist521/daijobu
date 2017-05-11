@@ -1,6 +1,15 @@
 // 現在表示されているユーザーを消去
 $("tbody").children().remove();
 // 各ユーザーのtrをtableに追加
-<% @counselors.each do |counselor| %>
-$("tbody").append("<%= j(render("tr", counselor: counselor)) %>");
+<% @self_counselors.each do |counselor| %>
+$(".self-ctable tbody").append("<%= j(render("tr", counselor: counselor)) %>");
 <% end %>
+
+<% @counselors.each do |counselor| %>
+$(".ctable tbody").append("<%= j(render("tr", counselor: counselor)) %>");
+<% end %>
+
+$("p.self-coun-count").html("<%= j("自分のカウンセラー #{@self_counselors.length}") %>")
+
+$("p.coun-count").html("<%= j("自分のカウンセラー #{@counselors.length}") %>")
+

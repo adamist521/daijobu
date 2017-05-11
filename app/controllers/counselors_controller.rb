@@ -5,6 +5,7 @@ class CounselorsController < ApplicationController
   # GET /counselors
   # GET /counselors.json
   def index
+    @self_counselors = current_user.counselors.order("id DESC")
     @counselors = Counselor.all.order("id DESC")
   end
 
@@ -65,7 +66,8 @@ class CounselorsController < ApplicationController
   # GET  users/search
   def search
     # params[:word]に入力された文字列が入っているので、whereで検索を行う。
-    @users = Counselor.where("name like '%" + params[:word] + "%'")
+    @self_counselors = current_user.counselors.where("name like '%" + params[:word] + "%'").order("id DESC")
+    @counselors = Counselor.where("name like '%" + params[:word] + "%'").order("id DESC")
   end
 
   private

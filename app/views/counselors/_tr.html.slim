@@ -1,0 +1,17 @@
+tr
+  td
+    .coun-thumb
+      figure.kaiwa-img-left
+        = image_tag  counselor.avatar.url(:thumb)
+  / td
+  /   = counselor.user_id
+  td
+    = link_to counselor.name, new_trouble_path(counselor_id: counselor.id)
+  / td
+  /   = counselor.response
+  / td
+  /   = link_to 'Show', counselor
+  / td
+  /   = link_to 'Edit', edit_counselor_path(counselor)
+  / td
+  /   = link_to 'Destroy', counselor, method: :delete, data: { confirm: 'Are you sure?' }
