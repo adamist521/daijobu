@@ -53,3 +53,13 @@ gem 'kaminari'
 gem 'rmagick'
 gem 'material_icons'
 gem 'slim-rails'
+<<<<<<< Updated upstream
+=======
+# gem 'jquery-turbolinks'
+gem 'cloudinary'
+gem 'paperclip-cloudinary'
+
+group :production do
+  gem 'rails_12factor'
+end
+>>>>>>> Stashed changes
