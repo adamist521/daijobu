@@ -11,7 +11,7 @@
 User.create(email: "techcamp@tech.camp", password: "666666", password_confirmation: "666666", nickname: "星野源",
             avatar: open("http://res.cloudinary.com/dngqhhpqw/image/upload/v1494574888/22/original/gen.png"))
 
-Counselor.create(user_id: 1, name: "新垣結衣", response: "大丈夫、なんとかなるよー",
+Counselor.create(user_id: 2, name: "新垣結衣", response: "大丈夫、なんとかなるよー",
                  avatar: open("http://res.cloudinary.com/dngqhhpqw/image/upload/v1494575000/23/original/gakki.jpg"))
 
-Trouble.create(user_id: 1, counselor_id: 1, content: "どうしたらいいかなぁ。助けて!")
+Trouble.create(user_id: 2, counselor_id: 2, content: "どうしたらいいかなぁ。助けて!")
