@@ -9,9 +9,9 @@
 
 
 User.create(email: "techcamp@tech.camp", password: "666666", password_confirmation: "666666", nickname: "星野源",
-            avatar: File.open(File.join(Rails.root,'app/assets/images/others/gen.png')))
+            avatar: open("http://res.cloudinary.com/dngqhhpqw/image/upload/v1494574888/22/original/gen.png"))
 
 Counselor.create(user_id: 1, name: "新垣結衣", response: "大丈夫、なんとかなるよー",
-                 avatar: File.open(File.join(Rails.root,'app/assets/images/others/gakki.jpg')))
+                 avatar: open("http://res.cloudinary.com/dngqhhpqw/image/upload/v1494575000/23/original/gakki.jpg"))
 
 Trouble.create(user_id: 1, counselor_id: 1, content: "どうしたらいいかなぁ。助けて!")
