@@ -56,7 +56,6 @@ gem 'slim-rails'
 # gem 'jquery-turbolinks'
 gem 'cloudinary'
 gem 'paperclip-cloudinary'
-# gem 'jquery-turbolinks'
 
 group :production do
   gem 'rails_12factor'
