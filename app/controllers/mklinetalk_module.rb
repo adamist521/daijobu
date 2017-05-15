@@ -2,7 +2,8 @@
 module MkLineTalk
   def mkimage(trouble)
     # img = Magick::ImageList.new(asset_path("line_bg.jpg")) # 元画像の sample.jpg を読み込み
-    img = Magick::ImageList.new(Rails.root.join('app/assets/images/others',"line_bg.jpg")) # 元画像の sample.jpg を読み込み
+    # img = Magick::ImageList.new(Rails.root.join('app/assets/images/others',"line_bg.jpg")) # 元画像の sample.jpg を読み込み
+    img = Magick::Image.read("http://res.cloudinary.com/dngqhhpqw/image/upload/v1494837301/line_bg_ojgogs.jpg")[0]
     # scaled_img = img.scale(300, 300)
     img.alpha = Magick::ActivateAlphaChannel
 
@@ -148,8 +149,8 @@ module MkLineTalk
     end
 
     # icon = Magick::ImageList.new(Rails.root.join('app/assets/images/others','gakki.jpg'))
-    # binding.pry
-    icon = Magick::ImageList.new(trouble.counselor.avatar.path(:thumb))
+    # icon = Magick::ImageList.new(trouble.counselor.avatar.path(:thumb))
+    icon = Magick::Image.read(trouble.counselor.avatar.url(:thumb))[0]
     icon_size = 40
     icon.resize_to_fill!(icon_size, icon_size)
     img.composite!(icon, 10, talk_height + 10, Magick::OverCompositeOp)
