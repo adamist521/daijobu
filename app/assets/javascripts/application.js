@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-snowfall/dist/snowfall.jquery.min.js
 //= require_tree .

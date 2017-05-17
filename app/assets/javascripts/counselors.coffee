@@ -12,3 +12,10 @@ $ ->
       data: word: $(this).val()  # 送信するデータ（パラメータ)。今回の場合は、params[:word] = “入力されている文字列” となる。
     return
   return
+
+$ ->
+  $(document).snowfall
+    # image: 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932680/flake_fu1ysz.png' # jquery-snowfall/examples/images/flake.png
+    image: 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932862/sakura_lgnnq4.png'
+    minSize: 10
+    maxSize: 20
