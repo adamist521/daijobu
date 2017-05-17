@@ -1,3 +1,4 @@
+# coding: utf-8
 class TroublesController < ApplicationController
   before_action :set_trouble, only: [:show, :edit, :update, :destroy, :download_file]
 
@@ -20,7 +21,9 @@ class TroublesController < ApplicationController
 
   # GET /troubles/1/edit
   def edit
-    @counselors = Counselor.all
+    # @senti = `node app/assets/javascripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
+    # @senti = `node tmp/scripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
+    gon.senti = `node tmp/scripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
   end
 
   # POST /troubles

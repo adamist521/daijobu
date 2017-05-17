@@ -1,0 +1,16 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$ ->
+  if ($('.kaiwa').length)
+    console.log(gon.senti)
+    if (gon.senti isnt 'neutral')
+      if (gon.senti is 'positive')
+        imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932862/sakura_lgnnq4.png'
+      else if (gon.senti is 'negative')
+        imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932680/flake_fu1ysz.png'
+      $(document).snowfall
+        image: imgurl
+        minSize: 10
+        maxSize: 20

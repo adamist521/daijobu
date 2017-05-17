@@ -58,6 +58,7 @@ gem 'cloudinary'
 gem 'paperclip-cloudinary'
 gem 'bower-rails'
 gem 'npm-rails'
+gem 'gon'
 
 group :production do
   gem 'rails_12factor'
