@@ -14,8 +14,21 @@ $ ->
   return
 
 $ ->
-  $(document).snowfall
-    # image: 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932680/flake_fu1ysz.png' # jquery-snowfall/examples/images/flake.png
-    image: 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932862/sakura_lgnnq4.png'
-    minSize: 10
-    maxSize: 20
+  # if ('.kaiwa')?
+  if ($('.kaiwa').length)
+    imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932862/sakura_lgnnq4.png'
+    client = new Mstranslator({ api_key: 'dfe68a0fd9a64e2f8ace713e6bb91508' }, true)
+    params = 
+      text: 'How\'s it going?'
+      from: 'en'
+      to: 'ja'
+    # Don't worry about access token, it will be auto-generated if needed.
+    client.translate params, (err, data) ->
+      console.log data
+      return
+      
+    $(document).snowfall
+      # image: 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932680/flake_fu1ysz.png<%= "png"  %>>' # jquery-snowfall/examples/images/flake.png
+      image: imgurl
+      minSize: 10
+      maxSize: 20

@@ -57,6 +57,7 @@ gem 'slim-rails'
 gem 'cloudinary'
 gem 'paperclip-cloudinary'
 gem 'bower-rails'
+gem 'npm-rails'
 
 group :production do
   gem 'rails_12factor'

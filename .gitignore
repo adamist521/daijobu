@@ -15,4 +15,5 @@
 # emacs
 *~
 
-.DS_Store
+.DS_Store# Added by npm-rails
+/node_modules
