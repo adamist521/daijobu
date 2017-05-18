@@ -41,7 +41,7 @@ body
 
 .wrapper
 {
-    width: 600px ;
+    max-width: 600px ;
     margin: 0 auto ;	/* 左右に[auto]を指定することで、真ん中に寄る */
     padding: 0 ;		/* 上下左右の余白を0にしておく */
 }
@@ -52,11 +52,19 @@ body
     body
     {
 	font-size: 13px ;	/* 文字サイズ */
+        width: auto;
+    }
+
+    #container
+    {
+        min-width: 320px ;
+        margin: 0 auto ;
+        padding: 0 ;
     }
 
     .wrapper
     {
-	width: auto ;
-	padding: 0 10px ;		/* 左右の余白 */
+        width: auto ;
+	padding: 0 0 ;		/* 左右の余白 */
     }
 }
