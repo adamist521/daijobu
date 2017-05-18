@@ -1,6 +1,7 @@
-.name-box
-  h1
-    = Counselor.find(params[:counselor_id]).name
-.kaiwa-box
-== render 'form'
+.screen-wrap
+  .name-box
+    h1
+      = Counselor.find(params[:counselor_id]).name
+  .kaiwa-box
+  == render 'form'
 = link_to 'Back', troubles_path
