@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :troubles
   get 'troubles/:id/download' => 'troubles#download_file', as: :download_file
+  get 'troubles/:id/getsenti' => 'troubles#getsenti'
   
   devise_for :users
 

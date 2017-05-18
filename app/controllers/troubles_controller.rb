@@ -1,6 +1,6 @@
 # coding: utf-8
 class TroublesController < ApplicationController
-  before_action :set_trouble, only: [:show, :edit, :update, :destroy, :download_file]
+  before_action :set_trouble, only: [:show, :edit, :update, :destroy, :download_file, :getsenti]
 
   # GET /troubles
   # GET /troubles.json
@@ -23,7 +23,13 @@ class TroublesController < ApplicationController
   def edit
     # @senti = `node app/assets/javascripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
     # @senti = `node tmp/scripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
-    gon.senti = `node tmp/scripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
+    gon.id = params[:id]
+  end
+  
+  def getsenti
+    # gon.senti = `node tmp/scripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
+    senti = `node tmp/scripts/get_text_senti.js "#{@trouble.content}"`.delete("\n")
+    render :json => {:senti => senti, :success => "success", :status_code => "200" }
   end
 
   # POST /troubles

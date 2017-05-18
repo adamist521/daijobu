@@ -2,15 +2,21 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
+$(document).on 'ready page:load', ->
   if ($('.kaiwa').length)
-    console.log(gon.senti)
-    if (gon.senti isnt 'neutral')
-      if (gon.senti is 'positive')
-        imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932862/sakura_lgnnq4.png'
-      else if (gon.senti is 'negative')
-        imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932680/flake_fu1ysz.png'
-      $(document).snowfall
-        image: imgurl
-        minSize: 10
-        maxSize: 20
+    console.log(gon.id)
+    callback = (response) ->
+      console.log(response["senti"])
+      senti = response["senti"]
+      if (senti isnt 'neutral')
+        if (senti is 'positive')
+          imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932862/sakura_lgnnq4.png'
+        else if (senti is 'negative')
+          imgurl = 'http://res.cloudinary.com/dngqhhpqw/image/upload/v1494932680/flake_fu1ysz.png'
+        $(document).snowfall
+          image: imgurl
+          minSize: 10
+          maxSize: 20
+    
+    $.get "/troubles/#{gon.id}/getsenti",[],callback
+
